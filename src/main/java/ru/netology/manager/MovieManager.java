@@ -24,9 +24,7 @@ public class MovieManager {
 
     public void addNewMovie(MovieManager movie) {
         MovieManager[] tmp = new MovieManager[movies.length + 1];
-        for (int i = 0; i < movies.length; i++) {
-            tmp[i] = movies[i];
-        }
+        System.arraycopy(movies, 0, tmp, 0, movies.length);
         tmp[tmp.length - 1] = movie;
         movies = tmp;
     }

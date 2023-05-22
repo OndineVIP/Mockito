@@ -7,7 +7,7 @@ import ru.netology.manager.MovieManager;
 
 public class MovieManagerTest {
     MovieManager manager = new MovieManager();
-    MovieManager manager2 = new MovieManager(3);
+    MovieManager manager2 = new MovieManager( 3);
 
     MovieManager movie1 = new MovieManager(1, "Бладшот", "боевик");
     MovieManager movie2 = new MovieManager(2, "Вперёд", "мультфильм");
