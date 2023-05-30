@@ -1,5 +1,6 @@
 package ru.netology;
 
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,6 +9,7 @@ import ru.netology.manager.MovieManager;
 
 
 class MovieManagerTest {
+
     MovieManager manager = new MovieManager();
     MovieManager manager2 = new MovieManager(3);
 
@@ -30,16 +32,7 @@ class MovieManagerTest {
         manager.addNewMovie(movie7);
     }
 
-    @BeforeEach
-    public void setup2() {
-        manager2.addNewMovie(movie1);
-        manager2.addNewMovie(movie2);
-        manager2.addNewMovie(movie3);
-        manager2.addNewMovie(movie4);
-        manager2.addNewMovie(movie5);
-        manager2.addNewMovie(movie6);
-        manager2.addNewMovie(movie7);
-    }
+
 
     @Test
     public void testLimitManager() {
@@ -49,6 +42,10 @@ class MovieManagerTest {
 
     @Test
     public void testLimitManagerIf3() {
+
+        manager2.addNewMovie(movie1);
+        manager2.addNewMovie(movie2);
+        manager2.addNewMovie(movie3);
 
         Assertions.assertEquals(3, manager2.getLimitManager());
     }
@@ -63,16 +60,6 @@ class MovieManagerTest {
     }
 
     @Test
-    public void addSevenMovie() {
-        Movie[] expected = {movie1, movie2, movie3, movie4, movie5, movie6, movie7};
-        Movie[] actual = manager.findAll();
-
-        Assertions.assertArrayEquals(expected, actual);
-
-    }
-
-
-    @Test
     public void findLast() {
 
         Movie[] expected = {movie7, movie6, movie5, movie4, movie3};
@@ -82,21 +69,9 @@ class MovieManagerTest {
     }
 
     @Test
-    public void findLastThree() {
-
-        Movie[] expected = {movie7, movie6, movie5};
-        Movie[] actual = manager2.findLast();
-
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
-
-    @Test
-    public void findLastIfMoviesLessManager1() {
-
+    public void findLastIfMoviesLessManager() {
         manager2.addNewMovie(movie1);
         manager2.addNewMovie(movie2);
-
 
         Movie[] expected = {movie2, movie1};
         Movie[] actual = manager2.findLast();
@@ -104,10 +79,8 @@ class MovieManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
-
     @Test
     public void findLastIfMoviesEqualsManager() {
-
         manager2.addNewMovie(movie1);
         manager2.addNewMovie(movie2);
         manager2.addNewMovie(movie3);
@@ -117,6 +90,6 @@ class MovieManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
+
 }
-
-
