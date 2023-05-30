@@ -89,19 +89,7 @@ class MovieManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
-    @Test
-    public void findLastIfMoviesLessManager() {
 
-        manager2.addNewMovie(movie1);
-        manager2.addNewMovie(movie2);
-        manager2.addNewMovie(movie3);
-
-        Movie[] expected = {movie3, movie2, movie1};
-        Movie[] actual = manager2.findLast();
-
-        Assertions.assertArrayEquals(expected, actual);
-
-    }
 
     @Test
     public void findLastIfMoviesLessManager1() {
