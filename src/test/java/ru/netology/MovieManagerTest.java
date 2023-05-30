@@ -7,7 +7,7 @@ import ru.netology.domain.Movie;
 import ru.netology.manager.MovieManager;
 
 
-class movieManagerTest {
+class MovieManagerTest {
     MovieManager manager = new MovieManager();
     MovieManager manager2 = new MovieManager(3);
 
@@ -97,6 +97,20 @@ class movieManagerTest {
         manager2.addNewMovie(movie3);
 
         Movie[] expected = {movie3, movie2, movie1};
+        Movie[] actual = manager2.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void findLastIfMoviesLessManager1() {
+
+        manager2.addNewMovie(movie1);
+        manager2.addNewMovie(movie2);
+
+
+        Movie[] expected = {movie2, movie1};
         Movie[] actual = manager2.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
