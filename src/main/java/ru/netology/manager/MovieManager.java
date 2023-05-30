@@ -1,9 +1,11 @@
 package ru.netology.manager;
 
 
+import ru.netology.domain.Movie;
 
 public class MovieManager {
     private int limitManager = 5;
+    private Movie[] movies = new Movie[0];
 
     public MovieManager() {
     }
@@ -12,36 +14,35 @@ public class MovieManager {
         this.limitManager = limitManager;
     }
 
-    public MovieManager(int i, String бладшот, String боевик) {
-    }
 
     public int getLimitManager() {
         return limitManager;
     }
 
 
-    public MovieManager[] movies = new MovieManager[0];
-
-    public void addNewMovie(MovieManager movie) {
-        MovieManager[] tmp = new MovieManager[movies.length + 1];
-        System.arraycopy(movies, 0, tmp, 0, movies.length);
+    public void addNewMovie(Movie movie) {
+        Movie[] tmp = new Movie[movies.length + 1];
+        for (int i = 0; i < movies.length; i++) {
+            tmp[i] = movies[i];
+        }
         tmp[tmp.length - 1] = movie;
         movies = tmp;
     }
 
-    public MovieManager[] findAll() {
+    public Movie[] findAll() {
         return movies;
     }
 
 
-    public MovieManager[] findLast() {
+    public Movie[] findLast() {
         int resultLenght;
-        if (limitManager == movies.length) {
+        if (limitManager > movies.length)
+        {
             resultLenght = movies.length;
         } else {
             resultLenght = limitManager;
         }
-        MovieManager[] result = new MovieManager[resultLenght];
+        Movie[] result = new Movie[resultLenght];
         for (int i = 0; i < result.length; i++) {
             result[i] = movies[movies.length - 1 - i];
         }
